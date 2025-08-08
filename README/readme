@@ -1,0 +1,40 @@
+Project Overview
+
+Components:
+
+Navbar:
+Provides site-wide navigation links to Home, Pets, and Appointments pages using Next.js Link for smooth client-side routing.
+
+Footer:
+Displays footer content across all pages with copyright info.
+
+Pets
+Handles pet input fields and submission (currently integrated inside pets.js).
+
+Appointmens
+Manages appointment input fields and submission (currently integrated inside appointments.js).
+
+Calendar
+Displays a monthly calendar UI to select dates for appointments.
+
+Routes
+
+/ (Home) — Welcome page with introduction and logo.
+
+/pets — Page to add, display, and delete pets.
+
+/appointments — Page showing a calendar and form to add appointments, plus a list of upcoming appointments.
+
+Dynamic routes (e.g., /pets/[id]) are planned for future development.
+
+State Management
+
+Local state managed using React’s useState hook within each page component.
+
+Pet data state (pets) and pet form inputs (form) are stored and updated inside pets.js.
+
+Appointment data state (appointments) and form inputs are managed inside appointments.js.
+
+State changes immediately reflect in the UI with dynamic adding and deleting functionality.
+
+Structured for easy lifting or Context API integration in upcoming phases.
