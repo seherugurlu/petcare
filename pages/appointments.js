@@ -1,23 +1,30 @@
+// pages/appointments.js
+// This page displays the calendar, lists appointments for the selected date,
+// and allows adding new appointments.
+
+
 import { useState } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; 
+import 'react-calendar/dist/Calendar.css'; // Calendar's default CSS
 
 export default function Appointments() {
+    // State for all appointments
   const [appointments, setAppointments] = useState([]);
-  const [form, setForm] = useState({ type: '', location: '', date: '', pet: '', details: '' });
-  const [selectedDate, setSelectedDate] = useState(new Date()); 
+  const [form, setForm] = useState({ type: '', location: '', date: '', pet: '', details: '' });  // State for the appointment form inputs
+  const [selectedDate, setSelectedDate] = useState(new Date());    // State for currently selected date on the calendar
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });   // Updates form state when a field changes
+ // Adds a new appointment to the list
   const addAppointment = () => {
-    if (!form.date || !form.type) return;
+    if (!form.date || !form.type) return; // Simple validation
     setAppointments([...appointments, form]);
-    setForm({ type: '', location: '', date: '', pet: '', details: '' });
+    setForm({ type: '', location: '', date: '', pet: '', details: '' }); // Reset form
   };
 
- 
+   // Filter appointments to only show those matching the selected date
+
   const filteredAppointments = appointments.filter(appt => appt.date === selectedDate.toISOString().slice(0,10));
 
   return (

@@ -1,9 +1,13 @@
+// pages/pets.js
+// Allows the user to add pets and view them in a list
 import { useState } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 
 export default function Pets() {
+    // Stores the list of pets
   const [pets, setPets] = useState([]);
+    // Stores the current values in the form
   const [form, setForm] = useState({
     name: '',
     age: '',
@@ -12,16 +16,18 @@ export default function Pets() {
     allergies: '',
   });
 
+  // Updates form values as user types
   const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
-
+ // Handles form submission: adds pet to the list
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPets([...pets, form]);
+    setPets([...pets, form]); // Add new pet to list
+      // Reset form
     setForm({
       name: '',
       age: '',

@@ -1,3 +1,5 @@
+// pages/index.js (Home Page)
+// Displays a welcome message with the app logo
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 
